@@ -1,0 +1,43 @@
+{
+  "name": "city-mobil/opentracing-grpc-interceptor",
+  "type": "library",
+  "description": "Grpc interceptor for OpenTracing",
+  "license": "Apache-2.0",
+  "minimum-stability": "stable",
+  "authors": [
+    {
+      "name": "Nail Khunafin",
+      "email": "n.khunafin@city-mobil.ru"
+    }
+  ],
+  "require": {
+    "php": "^7.2 || ^8.0",
+    "grpc/grpc": ">1.26  <1.34",
+    "opentracing/opentracing": "^1.0"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^7.0",
+    "php-coveralls/php-coveralls": "^v2.4.3",
+    "phpstan/phpstan": "^0.12",
+    "friendsofphp/php-cs-fixer": "^2.17"
+  },
+  "config": {
+    "sort-packages": true
+  },
+  "autoload": {
+    "psr-4": {
+      "OpenTracingInterceptor\\": "src/OpenTracingInterceptor"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "OpenTracingInterceptor\\": "tests"
+    }
+  },
+  "scripts": {
+    "fixer": "vendor/bin/php-cs-fixer fix  ./ 1>&2",
+    "lint": "vendor/bin/phpcs --standard=ZEND --standard=PSR2 --ignore=*/vendor/* ./",
+    "test": "vendor/bin/phpunit tests",
+    "static-check": "vendor/bin/phpstan analyze src tests"
+  }
+}
